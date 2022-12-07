@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/81831682c9.js" crossorigin="anonymous"></script>
+    <link rel = "stylesheet" href = "style.css">
+    
+    <title>Add Ticket</title> 
+</head>
+<body>
+   <!-- taskbox -->
+    <div class = "taskbox-cont">
+        <div class="taskbox-priority-cont">
+            <div class="lightpink color"></div>
+            <div class="lightblue color"></div>
+            <div class="lightgreen color"></div>
+            <div class="black color"></div>
+        </div>
+        <div class="actn-btn-cont">
+            <div class="add-btn">
+                <i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="remove-btn">
+                <i class="fa-solid fa-trash"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-cont">
+
+    </div> 
+
+    <div class="modal-cont">
+        <textarea spellcheck = "false" class = "textarea-cont" placeholder="Add a Ticket"></textarea>
+        <div class="priority-colors-cont">
+            <div class="lightpink priority-color"></div>
+            <div class="lightblue priority-color"></div>
+            <div class="lightgreen priority-color"></div>
+            <div class="black priority-color border"></div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/shortid-dist@1.0.5/dist/shortid-2.2.13.min.js"></script>
+    <script src = "javaScript.js"></script>
+</body>
+<style>
+    * {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.taskbox-cont {
+    height: 5rem;
+    background-color: #576574;
+    display: flex;
+    align-items: center;
+}
+
+.taskbox-cont>* {
+    margin-left: 4rem;
+    border-radius: 2px;
+}
+
+.taskbox-priority-cont {
+    height: 3.5rem;
+    width: 14rem;
+    background-color: #8395a7;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.actn-btn-cont {
+    height: 3.5rem;
+    width: 6rem;
+    background-color: #8395a7;
+    display: flex;
+}
+
+.actn-btn-cont>* {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    width: 50%;
+    color: #c8d6e5;
+}
+
+.color {
+    height: 1.2rem;
+    width: 2rem;
+    background-color: #ce6d85;
+    border-radius: 2px;
+}
+
+.lightpink {
+    background-color: rgb(213, 74, 95);
+}
+
+.lightblue {
+    background-color: rgb(23, 166, 45);
+}
+
+.lightgreen {
+    background-color: rgb(66, 42, 201);
+}
+
+.black {
+    background-color: black;
+}
+
+.actn-btn-cont>*:hover {
+    background: white;
+}
+
+.modal-cont {
+    height: 50vh;
+    width: 45vw;
+    background-color: #576574;
+    position: absolute;
+    top: calc((100vh - 50vh)/2);
+    left: calc((100vw - 45vw)/2);
+    display: none;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(107, 176, 51, 0.22) 0px 15px 12px;
+}
+
+.textarea-cont {
+    height: 100%;
+    width: 75%;
+    border: none;
+    outline: none;
+    background-color: #4c9fd2;
+    resize: none;
+    padding: 2rem;
+    font-size: 1.5rem;
+    color:rgb(193, 0, 0);
+}
+textarea::-webkit-input-placeholder {
+    color: white;
+  }
+  
+
+.priority-colors-cont {
+    height: 100%;
+    width: 25%;
+    background-color: #242313;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.priority-color {
+    height: 3rem;
+    width: 55%;
+}
+
+.border {
+    border: 5px solid #d03190;
+}
+
+.ticket-cont {
+    height: 13rem;
+    width: 16rem;
+    background-color: #c9dd36;
+}
+
+.ticket-color {
+    height: 1rem;
+}
+
+.ticket-id {
+    height: 2rem;
+    background-color: #1ec9aa;
+    padding: 0.4rem;
+}
+
+.task-area {
+    height: calc(100% - 1rem - 2rem - 2rem);
+    background-color: #000000;
+    padding: 0.4rem;
+    outline: none;
+}
+
+.ticket-lock {
+    height: 2rem;
+    display: flex;
+    background-color: #dfe4ea;
+    font-size: 1.5rem;
+    color: #af1515;
+    padding-right: 1rem;
+    justify-content: flex-end;
+}
+
+.main-cont {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+    gap: 2rem;
+    justify-content: center;
+}
+
+@media screen and (min-width :425px) and (max-width : 768px) {
+    .modal-cont {
+        width: 60vw;
+        left: calc( ( 100vw - 60vw ) / 2);
+    }
+
+}
+
+@media screen and (max-width : 426px) {
+    .modal-cont {
+        width: 75vw;
+        height : 50vh;
+        top :calc( ( 100vh - 50vh )/2);
+        left: calc( ( 100vw - 75vw ) / 2);
+        flex-direction: column;
+    }
+
+    .priority-colors-cont {
+        flex-direction: row;
+        width: 100%;
+        height: 25%;
+    }
+    .textarea-cont{
+        width :100;height:75%;
+    }
+    .priority-color{
+        width: 17%;
+    }
+    .taskbox-cont>*{
+        margin-left: 2rem;
+        border-radius: 2px;
+    }
+}
+</style>
+</html>
